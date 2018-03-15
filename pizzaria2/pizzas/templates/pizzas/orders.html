@@ -1,0 +1,34 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+  <p>Place an Order</p>
+
+  <form method="post" action="{% url 'pizzas:orders' %}">
+    {{ form.as_p }}
+    {% csrf_token %}
+   <button name="submit">Submit Order</button>
+
+   <input type="hidden" name="next" value="{% url 'pizzas:order_summary' %}"/>
+  </form>
+
+
+
+      <p>{{ get_sizes_display }}<p>
+
+
+ 
+
+  {% for crust in crusts %}
+
+    <p>{{ crust }}<p>
+
+  {% endfor %}
+
+  {% for selection in selections %}
+
+    <p>{{ selection }}<p>
+
+  {% endfor %}
+
+{% endblock content %}

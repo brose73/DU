@@ -1,0 +1,25 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+  <p>Order Summary</p>
+
+    <p>Pizza Size: </p>
+
+    <p>Toppings:</p>
+  <ul>
+  {% for selection in selections %}
+    <li>
+      <p>{{ selection }}</p>
+    </li>
+  {% empty %}
+    <li>
+      There are no toppings to display.
+    </li>
+  {% endfor %}
+  </ul>
+
+
+
+
+{% endblock content %}
